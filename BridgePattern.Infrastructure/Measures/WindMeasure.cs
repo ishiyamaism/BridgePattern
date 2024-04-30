@@ -1,24 +1,17 @@
+using System.Runtime.InteropServices;
 using BridgePattern.Exeptions;
-using BridgePattern.Modules.Helpers;
 using BridgePattern.Repositories;
 using BridgePattern.ValueObjects;
 
-namespace BridgePattern.Infrastructure.Devices;
+namespace BridgePattern.Infrastructure.Measures;
 
-public sealed class WindBatteryDevice : Device
+public sealed class WindMeasure : IMeasure
 {
   // ここでデータソースの取得方法を定める
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.WindSpeed);
 
-  // 抽象クラスでの抽象メソッド以外に「拡張」するケース
-  public override string GetBatteryLevel()
+  public string GetMeasure()
   {
-    return $"{NumberHelper.Get100RandomNumber()} %";
-  }
-
-  public override string GetMeasure()
-  {
-
     try
     {
       var data = _dataRepository.Get();
@@ -38,5 +31,8 @@ public sealed class WindBatteryDevice : Device
     }
   }
 
-  public override string GetName() => "風力バッテリー";
+  public string GetName()
+  {
+    return "風力";
+  }
 }

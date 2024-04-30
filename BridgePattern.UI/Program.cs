@@ -1,5 +1,6 @@
 ﻿using BridgePattern.Exeptions;
 using BridgePattern.Infrastructure.Devices;
+using BridgePattern.Infrastructure.Measures;
 using BridgePattern.UI.States;
 
 namespace BridgePattern.UI;
@@ -9,11 +10,15 @@ class Program
     static private StateMachine _stateMachine = new StateMachine();
     static private string? _currentState;
 
-    private static Device _device = new TemperatureDevice();
+    private static Device _device;
 
     static Program()
     {
         _stateMachine.StateChanged += StateMachine_StateChanged;
+
+        // 初期センサー
+        IMeasure measure = new TemperatureMeasure();
+        _device = new ACDevice(measure);
     }
 
 
@@ -54,7 +59,7 @@ class Program
 
                     try
                     {
-                        NameLabelText = _device.GetName();
+                        NameLabelText = _device.GetName() + _device.GetDeviceName();
                         MeasureLabelText = _device.GetMeasure();
                         SensitivityLabelText = _device.GetSensitivity();
                         BatteryLabelText = _device.GetBatteryLevel();

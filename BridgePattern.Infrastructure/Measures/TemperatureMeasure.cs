@@ -1,25 +1,17 @@
+using System.Runtime.InteropServices;
 using BridgePattern.Exeptions;
-using BridgePattern.Modules.Helpers;
 using BridgePattern.Repositories;
 using BridgePattern.ValueObjects;
 
-namespace BridgePattern.Infrastructure.Devices;
+namespace BridgePattern.Infrastructure.Measures;
 
-public sealed class TemperatureBatteryDevice : Device
+public sealed class TemperatureMeasure : IMeasure
 {
   // ここでデータソースの取得方法を定める
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.Temperature);
 
-  // 抽象クラスでの抽象メソッド以外に「拡張」するケース
-  // だがクライアントからむりやり一元的に使いたいので抽象に対して実装するパターン
-  public override string GetBatteryLevel()
+  public string GetMeasure()
   {
-    return $"{NumberHelper.Get100RandomNumber()} %";
-  }
-
-  public override string GetMeasure()
-  {
-
     try
     {
       var data = _dataRepository.Get();
@@ -39,5 +31,8 @@ public sealed class TemperatureBatteryDevice : Device
     }
   }
 
-  public override string GetName() => "温度バッテリー";
+  public string GetName()
+  {
+    return "温度";
+  }
 }

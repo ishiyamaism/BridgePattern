@@ -1,4 +1,5 @@
 using BridgePattern.Infrastructure.Devices;
+using BridgePattern.Infrastructure.Measures;
 
 namespace BridgePattern.UI.States;
 
@@ -14,7 +15,10 @@ public sealed class WindBatteryState : IState
   }
   public Device GetStateDevice()
   {
-    return new WindBatteryDevice();
+    // 測定するのは風力であり、
+    IMeasure measure = new WindMeasure();
+    // 電源はバッテリー
+    return new BatteryDevice(measure);
   }
 
   public IEnumerable<string> GetCommand()

@@ -1,4 +1,5 @@
 using BridgePattern.Infrastructure.Devices;
+using BridgePattern.Infrastructure.Measures;
 
 namespace BridgePattern.UI.States;
 
@@ -14,7 +15,10 @@ public sealed class TemperatureBatteryState : IState
   }
   public Device GetStateDevice()
   {
-    return new TemperatureBatteryDevice();
+    // 測定するのは温度であり、
+    IMeasure measure = new TemperatureMeasure();
+    // 電源はバッテリー
+    return new BatteryDevice(measure);
   }
 
   public IEnumerable<string> GetCommand()
