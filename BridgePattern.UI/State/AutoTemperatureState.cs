@@ -16,7 +16,7 @@ public sealed class AutoTemperatureState : IState
   public Device GetStateDevice()
   {
     // 測定するのは自動温度であり、電源はAC
-    return new ACDevice(new TemperatureMeasure());
+    return new ACDevice(new AutoTemperatureMeasure());
   }
 
   public IEnumerable<string> GetCommand()

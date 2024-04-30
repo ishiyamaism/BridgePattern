@@ -16,7 +16,7 @@ public sealed class AutoTemperatureBatteryState : IState
   public Device GetStateDevice()
   {
     // 測定するのは自動温度であり、電源はバッテリー
-    return new BatteryDevice(new TemperatureMeasure());
+    return new BatteryDevice(new AutoTemperatureMeasure());
   }
 
   public IEnumerable<string> GetCommand()

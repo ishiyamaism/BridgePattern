@@ -19,6 +19,10 @@ public static class DataFactory
     {
       return new TextFile("./Data/wind01.txt");
     }
+    else if (dataType == DataType.AutoTemperature)
+    {
+      return new AutoSensor();
+    }
 
 
 
@@ -34,4 +38,5 @@ public enum DataType
 {
   Temperature,
   WindSpeed,
+  AutoTemperature
 }
