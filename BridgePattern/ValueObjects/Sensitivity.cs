@@ -20,6 +20,17 @@ public sealed class Sensitivity : ValueObject<Sensitivity>
         }
     }
 
+    public int IntValue
+    {
+        get
+        {
+            if (int.TryParse(Value, out int i))
+            {
+                return i;
+            }
+            return 0;
+        }
+    }
     protected override bool EqualsCore(Sensitivity other)
     {
         return this.Value == other.Value;

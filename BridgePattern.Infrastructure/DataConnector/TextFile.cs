@@ -14,8 +14,6 @@ internal sealed class TextFile : IDataRepository
 
   }
   public async Task<string> Get()
-
-
   {
     try
     {

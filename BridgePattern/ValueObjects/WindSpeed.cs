@@ -19,6 +19,17 @@ public sealed class WindSpeed : ValueObject<WindSpeed>
             return $"{Value} m/s"; ;
         }
     }
+    public int IntValue
+    {
+        get
+        {
+            if (int.TryParse(Value, out int i))
+            {
+                return i;
+            }
+            return 0;
+        }
+    }
 
     protected override bool EqualsCore(WindSpeed other)
     {

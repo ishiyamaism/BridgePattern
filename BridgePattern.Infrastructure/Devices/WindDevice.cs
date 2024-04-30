@@ -11,12 +11,13 @@ public sealed class WindDevice : Device
 
   public override string GetBatteryLevel()
   {
+    // バッテリーデバイスではないのでバッテリーレベルはわからない
+    // (にも関わらずここで持たねばならないことがそもそもイケてない)
     return "-";
   }
 
   public override string GetMeasure()
   {
-
     try
     {
       var data = _dataRepository.Get();

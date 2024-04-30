@@ -19,6 +19,17 @@ public sealed class Temperature : ValueObject<Temperature>
             return $"{Value} ℃"; ;
         }
     }
+    public int IntValue
+    {
+        get
+        {
+            if (int.TryParse(Value, out int i))
+            {
+                return i;
+            }
+            return 0;
+        }
+    }
 
     protected override bool EqualsCore(Temperature other)
     {

@@ -5,6 +5,7 @@ namespace BridgePattern.UI.States;
 // 状態管理のためのクラス
 public sealed class StateMachine
 {
+  // 最初は温度モードとする
   private IState _state = TemperatureState.Instance;
 
   // State変化監視用のオブザーバー

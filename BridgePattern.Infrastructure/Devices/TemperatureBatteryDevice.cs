@@ -11,6 +11,7 @@ public sealed class TemperatureBatteryDevice : Device
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.Temperature);
 
   // 抽象クラスでの抽象メソッド以外に「拡張」するケース
+  // だがクライアントからむりやり一元的に使いたいので抽象に対して実装するパターン
   public override string GetBatteryLevel()
   {
     return $"{NumberHelper.Get100RandomNumber()} %";

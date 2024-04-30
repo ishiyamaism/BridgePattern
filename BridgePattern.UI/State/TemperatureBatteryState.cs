@@ -4,6 +4,7 @@ namespace BridgePattern.UI.States;
 
 public sealed class TemperatureBatteryState : IState
 {
+  // 状態インスタンスは必ず１つなのでSingletonパターン
   private TemperatureBatteryState() { }
   public static TemperatureBatteryState Instance { get; } = new TemperatureBatteryState();
 
