@@ -11,7 +11,7 @@ public sealed class WindBatteryDevice : Device
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.WindSpeed);
 
   // 抽象クラスでの抽象メソッド以外に「拡張」するケース
-  public string GetBatteryLevel()
+  public override string GetBatteryLevel()
   {
     return $"{NumberHelper.Get100RandomNumber()} %";
   }

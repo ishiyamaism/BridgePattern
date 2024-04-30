@@ -17,15 +17,17 @@ class Program
     }
 
 
-    private static string NameLabelText = "";
-    private static string MeasureLabelText = "";
-    private static string SensitivityLabelText = "";
+    private static string NameLabelText = "empty";
+    private static string MeasureLabelText = "empty";
+    private static string SensitivityLabelText = "empty";
+    private static string BatteryLabelText = "empty";
 
     private static void DisplayLabels()
     {
         Console.WriteLine(NameLabelText);
         Console.WriteLine(MeasureLabelText);
         Console.WriteLine(SensitivityLabelText);
+        Console.WriteLine(BatteryLabelText);
     }
 
 
@@ -55,6 +57,7 @@ class Program
                         NameLabelText = _device.GetName();
                         MeasureLabelText = _device.GetMeasure();
                         SensitivityLabelText = _device.GetSensitivity();
+                        BatteryLabelText = _device.GetBatteryLevel();
 
                     }
                     catch (InputDataException ex)

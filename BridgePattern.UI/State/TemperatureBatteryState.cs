@@ -2,10 +2,10 @@ using BridgePattern.Infrastructure.Devices;
 
 namespace BridgePattern.UI.States;
 
-public sealed class TempBatteryState : IState
+public sealed class TemperatureBatteryState : IState
 {
-  private TempBatteryState() { }
-  public static TempBatteryState Instance { get; } = new TempBatteryState();
+  private TemperatureBatteryState() { }
+  public static TemperatureBatteryState Instance { get; } = new TemperatureBatteryState();
 
   public string GetStateText()
   {
@@ -13,7 +13,7 @@ public sealed class TempBatteryState : IState
   }
   public Device GetStateDevice()
   {
-    return new TempBatteryDevice();
+    return new TemperatureBatteryDevice();
   }
 
   public IEnumerable<string> GetCommand()

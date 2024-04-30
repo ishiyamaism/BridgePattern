@@ -5,13 +5,13 @@ using BridgePattern.ValueObjects;
 
 namespace BridgePattern.Infrastructure.Devices;
 
-public sealed class TempBatteryDevice : Device
+public sealed class TemperatureBatteryDevice : Device
 {
   // ここでデータソースの取得方法を定める
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.Temperature);
 
   // 抽象クラスでの抽象メソッド以外に「拡張」するケース
-  public string GetBatteryLevel()
+  public override string GetBatteryLevel()
   {
     return $"{NumberHelper.Get100RandomNumber()} %";
   }

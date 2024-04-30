@@ -9,6 +9,11 @@ public sealed class WindDevice : Device
   // ここでデータソースの取得方法を定める
   private static IDataRepository _dataRepository = DataFactory.Create(DataType.WindSpeed);
 
+  public override string GetBatteryLevel()
+  {
+    return "-";
+  }
+
   public override string GetMeasure()
   {
 

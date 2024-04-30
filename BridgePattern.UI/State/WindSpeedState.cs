@@ -22,6 +22,6 @@ public sealed class WindSpeedState : IState
 
   public void OnUpdate(StateMachine stateMachine)
   {
-    stateMachine.ChangeState(TempBatteryState.Instance);
+    stateMachine.ChangeState(TemperatureBatteryState.Instance);
   }
 }
