@@ -15,10 +15,8 @@ public sealed class TemperatureState : IState
   }
   public Device GetStateDevice()
   {
-    // 測定するのは温度であり、
-    IMeasure measure = new TemperatureMeasure();
-    // 電源はAC
-    return new ACDevice(measure);
+    // 測定するのは温度であり、電源はAC
+    return new ACDevice(new TemperatureMeasure());
   }
 
   public IEnumerable<string> GetCommand()

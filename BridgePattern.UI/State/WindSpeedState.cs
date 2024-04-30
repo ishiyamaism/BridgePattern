@@ -15,10 +15,8 @@ public sealed class WindSpeedState : IState
   }
   public Device GetStateDevice()
   {
-    // 測定するのは風力であり、
-    IMeasure measure = new WindMeasure();
-    // 電源はAC
-    return new ACDevice(measure);
+    // 測定するのは風力であり、電源はAC
+    return new ACDevice(new WindMeasure());
   }
   public IEnumerable<string> GetCommand()
   {

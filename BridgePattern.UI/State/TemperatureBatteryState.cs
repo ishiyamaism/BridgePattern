@@ -15,10 +15,8 @@ public sealed class TemperatureBatteryState : IState
   }
   public Device GetStateDevice()
   {
-    // 測定するのは温度であり、
-    IMeasure measure = new TemperatureMeasure();
-    // 電源はバッテリー
-    return new BatteryDevice(measure);
+    // 測定するのは温度であり、電源はバッテリー
+    return new BatteryDevice(new TemperatureMeasure());
   }
 
   public IEnumerable<string> GetCommand()

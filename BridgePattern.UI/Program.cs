@@ -17,8 +17,7 @@ class Program
         _stateMachine.StateChanged += StateMachine_StateChanged;
 
         // 初期センサー
-        IMeasure measure = new TemperatureMeasure();
-        _device = new ACDevice(measure);
+        _device = new ACDevice(new TemperatureMeasure());
     }
 
 

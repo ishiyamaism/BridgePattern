@@ -15,10 +15,8 @@ public sealed class WindBatteryState : IState
   }
   public Device GetStateDevice()
   {
-    // 測定するのは風力であり、
-    IMeasure measure = new WindMeasure();
-    // 電源はバッテリー
-    return new BatteryDevice(measure);
+    // 測定するのは風力であり、電源はバッテリー
+    return new BatteryDevice(new WindMeasure());
   }
 
   public IEnumerable<string> GetCommand()
