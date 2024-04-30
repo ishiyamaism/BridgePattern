@@ -3,20 +3,20 @@ using BridgePattern.Infrastructure.Measures;
 
 namespace BridgePattern.UI.States;
 
-public sealed class TemperatureState : IState
+public sealed class WindSunState : IState
 {
   // 状態インスタンスは必ず１つなのでSingletonパターン
-  private TemperatureState() { }
-  public static TemperatureState Instance { get; } = new TemperatureState();
+  private WindSunState() { }
+  public static WindSunState Instance { get; } = new WindSunState();
 
   public string GetStateText()
   {
-    return "温度測定モード";
+    return "風力太陽光測定モード";
   }
   public Device GetStateDevice()
   {
-    // 測定するのは温度であり、電源はAC
-    return new ACDevice(new TemperatureMeasure());
+    // 測定するのは風力であり、電源は太陽光
+    return new SunDevice(new WindMeasure());
   }
 
   public IEnumerable<string> GetCommand()
@@ -27,6 +27,6 @@ public sealed class TemperatureState : IState
   public void OnUpdate(StateMachine stateMachine)
   {
     // Stateパターン (次の状態を自身が有する)
-    stateMachine.ChangeState(TemperatureBatteryState.Instance);
+    stateMachine.ChangeState(AutoTemperatureState.Instance);
   }
 }

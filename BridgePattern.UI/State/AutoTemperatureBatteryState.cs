@@ -26,6 +26,6 @@ public sealed class AutoTemperatureBatteryState : IState
 
   public void OnUpdate(StateMachine stateMachine)
   {
-    stateMachine.ChangeState(TemperatureState.Instance);
+    stateMachine.ChangeState(AutoTemperatureSunState.Instance);
   }
 }

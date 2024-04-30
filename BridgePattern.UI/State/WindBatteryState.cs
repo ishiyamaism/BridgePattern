@@ -27,6 +27,6 @@ public sealed class WindBatteryState : IState
   public void OnUpdate(StateMachine stateMachine)
   {
     // Stateパターン (次の状態を自身が有する)
-    stateMachine.ChangeState(AutoTemperatureState.Instance);
+    stateMachine.ChangeState(WindSunState.Instance);
   }
 }
